@@ -14,8 +14,8 @@ def image_processed(hand_img):
     img_rgb = cv2.cvtColor(hand_img, cv2.COLOR_BGR2RGB)
     img_flip = cv2.flip(img_rgb, 1)
     mp_hands = mp.solutions.hands
-    hands = mp_hands.Hands(static_image_mode=True,
-    max_num_hands=1, min_detection_confidence=0.7)
+    hands = mp_hands.Hands(static_image_mode=True, max_num_hands=1, min_detection_confidence=0.7)
+    
     output = hands.process(img_flip)
     hands.close()
     try:
@@ -54,7 +54,7 @@ i = 0
 
 def doappend():
     word_array.append(val)
-    print("FUNCTION CALLED",word_array)
+    print(word_array)
 
 schedule.every(5).seconds.do(doappend)
 
@@ -79,8 +79,6 @@ while True:
     if cv.waitKey(1) == ord('q'):
         break
 
-    
-
 cap.release()
 cv.destroyAllWindows()
 word = ""
@@ -90,5 +88,5 @@ for e in word_array:
     else:
         word+=e
 
-print(word)
 texttospeech(word)
+print(word)
