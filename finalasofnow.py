@@ -41,7 +41,7 @@ def image_processed(hand_img):
         return(np.zeros([1,63], dtype=int)[0])
 
 import pickle
-with open(r'D:\code\MiniProject\hand-gesture-recognition\model.pkl', 'rb') as f:
+with open(r'D:\code\MiniProject\hand-gesture-recognition\new-model-1.pkl', 'rb') as f:
     svm = pickle.load(f)
 
 import cv2 as cv

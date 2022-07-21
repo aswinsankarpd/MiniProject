@@ -3,7 +3,7 @@ import cv2 as cv
 from pathlib import Path
 
 def get_image():
-    Class = 'Z'
+    Class = 'H'
     Path('DATASET2/'+Class).mkdir(parents=True, exist_ok=True)
     cap = cv.VideoCapture(0)
     if not cap.isOpened():
@@ -24,7 +24,7 @@ def get_image():
         cv.imwrite('DATASET2/'+Class+'/'+str(i)+'.png',frame)
       
         cv.imshow('frame', frame)
-        if cv.waitKey(1) == ord('q') or i > 200:
+        if cv.waitKey(1) == ord('q') or i > 500:
             break
   
     cap.release()
