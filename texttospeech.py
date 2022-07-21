@@ -11,7 +11,3 @@ def texttospeech(word):
     spk.Voice
     spk.SetVoice(vcs.Item(speaker_number)) # set voice (see Windows Text-to-Speech settings)
     spk.Speak(word)
-
-def wordappender(word_array,letter):
-    word_array.append(letter)
-    print(letter)

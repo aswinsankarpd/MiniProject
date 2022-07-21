@@ -59,8 +59,7 @@ def image_processed(file_path):
         return(np.zeros([1,63], dtype=int)[0])
 
 def make_csv():
-    
-    mypath = 'temp-dataset'
+    mypath = r'D:\code\MiniProject\NewCode\hand-gesture-recognition\DATASET2'
     file_name = open('temp-dataset.csv', 'a')
 
     for each_folder in os.listdir(mypath):

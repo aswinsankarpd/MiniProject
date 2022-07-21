@@ -4,7 +4,7 @@ import pandas as pd
 import os
 import numpy as np 
 from texttospeech import texttospeech
-from texttospeech import wordappender
+# from texttospeech import wordappender
 import time
 
 word_array = []
@@ -13,6 +13,7 @@ word = ""
 def image_processed(hand_img):
     img_rgb = cv2.cvtColor(hand_img, cv2.COLOR_BGR2RGB)
     img_flip = cv2.flip(img_rgb, 1)
+    # img_flip = img_rgb
     mp_hands = mp.solutions.hands
     hands = mp_hands.Hands(static_image_mode=True,
     max_num_hands=1, min_detection_confidence=0.7)
@@ -41,7 +42,7 @@ def image_processed(hand_img):
         return(np.zeros([1,63], dtype=int)[0])
 
 import pickle
-with open('model.pkl', 'rb') as f:
+with open(r'D:\code\MiniProject\NewCode\hand-gesture-recognition\model.pkl', 'rb') as f:
     svm = pickle.load(f)
 
 import cv2 as cv
@@ -71,8 +72,7 @@ while True:
     if cv.waitKey(1) == ord('q'):
         break
 
-    # Thread(target=wordappender, args=(word_array,y_pred[0])).start()
-    wordappender(word_array,y_pred[0])
+    word_array.append(y_pred[0])
 
 cap.release()
 cv.destroyAllWindows()
